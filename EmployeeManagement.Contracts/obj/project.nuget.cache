@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "dacCpG4ZJkA8iSeV0ir0l38R2bYSgU2CNlpacpFq35DImGDI25/cd/Jpv9CD3MGwbB0mYC83eokv0Onhu3+exg==",
+  "success": true,
+  "projectFilePath": "D:\\Programming\\Project\\EmployeeManagement\\EmployeeManagement.Contracts\\EmployeeManagement.Contracts.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\user\\.nuget\\packages\\automapper\\11.0.1\\automapper.11.0.1.nupkg.sha512",
+    "C:\\Users\\user\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512"
+  ],
+  "logs": []
+}

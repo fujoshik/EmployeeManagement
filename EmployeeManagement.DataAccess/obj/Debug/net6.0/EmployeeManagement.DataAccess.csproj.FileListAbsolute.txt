@@ -1,0 +1,17 @@
+D:\Programming\Project\EmployeeManagement\EmployeeManagement.DataAccess\bin\Debug\net6.0\EmployeeManagement.DataAccess.deps.json
+D:\Programming\Project\EmployeeManagement\EmployeeManagement.DataAccess\bin\Debug\net6.0\EmployeeManagement.DataAccess.runtimeconfig.json
+D:\Programming\Project\EmployeeManagement\EmployeeManagement.DataAccess\bin\Debug\net6.0\EmployeeManagement.DataAccess.dll
+D:\Programming\Project\EmployeeManagement\EmployeeManagement.DataAccess\bin\Debug\net6.0\EmployeeManagement.DataAccess.pdb
+D:\Programming\Project\EmployeeManagement\EmployeeManagement.DataAccess\obj\Debug\net6.0\EmployeeManagement.DataAccess.csproj.AssemblyReference.cache
+D:\Programming\Project\EmployeeManagement\EmployeeManagement.DataAccess\obj\Debug\net6.0\EmployeeManagement.DataAccess.GeneratedMSBuildEditorConfig.editorconfig
+D:\Programming\Project\EmployeeManagement\EmployeeManagement.DataAccess\obj\Debug\net6.0\EmployeeManagement.DataAccess.AssemblyInfoInputs.cache
+D:\Programming\Project\EmployeeManagement\EmployeeManagement.DataAccess\obj\Debug\net6.0\EmployeeManagement.DataAccess.AssemblyInfo.cs
+D:\Programming\Project\EmployeeManagement\EmployeeManagement.DataAccess\obj\Debug\net6.0\EmployeeManagement.DataAccess.csproj.CoreCompileInputs.cache
+D:\Programming\Project\EmployeeManagement\EmployeeManagement.DataAccess\obj\Debug\net6.0\EmployeeManagement.DataAccess.dll
+D:\Programming\Project\EmployeeManagement\EmployeeManagement.DataAccess\obj\Debug\net6.0\refint\EmployeeManagement.DataAccess.dll
+D:\Programming\Project\EmployeeManagement\EmployeeManagement.DataAccess\obj\Debug\net6.0\EmployeeManagement.DataAccess.pdb
+D:\Programming\Project\EmployeeManagement\EmployeeManagement.DataAccess\obj\Debug\net6.0\EmployeeManagement.DataAccess.genruntimeconfig.cache
+D:\Programming\Project\EmployeeManagement\EmployeeManagement.DataAccess\obj\Debug\net6.0\ref\EmployeeManagement.DataAccess.dll
+D:\Programming\Project\EmployeeManagement\EmployeeManagement.DataAccess\bin\Debug\net6.0\EmployeeManagement.Contracts.dll
+D:\Programming\Project\EmployeeManagement\EmployeeManagement.DataAccess\bin\Debug\net6.0\EmployeeManagement.Contracts.pdb
+D:\Programming\Project\EmployeeManagement\EmployeeManagement.DataAccess\obj\Debug\net6.0\EmployeeManagement.DataAccess.csproj.CopyComplete

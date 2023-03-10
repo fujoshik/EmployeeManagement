@@ -1,0 +1,5 @@
+D:\Programming\Project\EmployeeManagement\EmployeeManagement.Services\obj\Debug\net6.0\EmployeeManagement.Services.csproj.AssemblyReference.cache
+D:\Programming\Project\EmployeeManagement\EmployeeManagement.Services\obj\Debug\net6.0\EmployeeManagement.Services.GeneratedMSBuildEditorConfig.editorconfig
+D:\Programming\Project\EmployeeManagement\EmployeeManagement.Services\obj\Debug\net6.0\EmployeeManagement.Services.AssemblyInfoInputs.cache
+D:\Programming\Project\EmployeeManagement\EmployeeManagement.Services\obj\Debug\net6.0\EmployeeManagement.Services.AssemblyInfo.cs
+D:\Programming\Project\EmployeeManagement\EmployeeManagement.Services\obj\Debug\net6.0\EmployeeManagement.Services.csproj.CoreCompileInputs.cache
