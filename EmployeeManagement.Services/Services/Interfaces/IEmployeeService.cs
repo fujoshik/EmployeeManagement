@@ -22,5 +22,7 @@ namespace EmployeeManagement.Services.Services.Interfaces
 
         Task DeleteAsync(Guid id);
         EmployeeWithoutIdDto GetEmployeeByEmail(string email);
+
+        List<EmployeeWithoutIdDto> TopFiveEmployeesOfTheWeek();
     }
 }

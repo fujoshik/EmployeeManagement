@@ -6,13 +6,14 @@ using System.Linq;
 using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
+using static System.Collections.Specialized.BitVector32;
 
 namespace EmployeeManagement.DataAccess
 {
     public class EmployeeManagementDbContext : DbContext
     {
-        public EmployeeManagementDbContext(DbContextOptions<EmployeeManagementDbContext> options)
-            : base(options)
+        public EmployeeManagementDbContext()
+            : base()
         {
         }
         public DbSet<Employee> Employees { get; set; }
@@ -26,7 +27,6 @@ namespace EmployeeManagement.DataAccess
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-
             base.OnModelCreating(modelBuilder);
         }
     }

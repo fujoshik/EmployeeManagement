@@ -15,7 +15,7 @@ namespace EmployeeManagement.Services.Services.Interfaces
 
         Task<List<TaskWithoutIdDto>> GetAll(Expression<Func<TaskWithIdDto, bool>> filter);
 
-        Task<TaskWithoutIdDto> GetEmployeeAsync(Guid id);
+        Task<TaskWithoutIdDto> GetTaskAsync(Guid id);
 
         Task AddAsync(TaskWithoutIdDto dto);
 

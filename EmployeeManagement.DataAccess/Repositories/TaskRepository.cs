@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Data.Repositories
+namespace EmployeeManagement.DataAccess.Repositories
 {
     public class TaskRepository : BaseRepository<EmployeeManagement.DataAccess.Entities.Task>, ITaskRepository
     {

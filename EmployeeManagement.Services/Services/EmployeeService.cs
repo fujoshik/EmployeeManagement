@@ -71,5 +71,10 @@ namespace EmployeeManagement.Services.Services
             List<Employee> employees = await _repository.GetAll(employeeFilter).ToListAsync();
             return _mapper.Map<List<EmployeeWithoutIdDto>>(employees);
         }
+
+        public List<EmployeeWithoutIdDto> TopFiveEmployeesOfTheWeek()
+        {
+            
+        }
     }
 }

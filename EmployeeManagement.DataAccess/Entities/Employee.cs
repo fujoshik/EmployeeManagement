@@ -13,5 +13,7 @@ namespace EmployeeManagement.DataAccess.Entities
         public string? PhoneNumber { get; set; }
         public DateTime DateOfBirth { get; set; }
         public decimal MonthlySalary { get; set; }
+        public Guid DepartmentId { get; set; }
+        public ICollection<Task>? Tasks { get; set; } = new List<Task>();
     }
 }
