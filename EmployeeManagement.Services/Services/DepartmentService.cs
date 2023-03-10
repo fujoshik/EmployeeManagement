@@ -17,11 +17,13 @@ namespace EmployeeManagement.Services.Services
     {
         private readonly IDepartmentRepository _repository;
         private readonly IMapper _mapper;
+        private readonly IEmployeeService _employeeService;
 
-        public DepartmentService(IDepartmentRepository repository, IMapper mapper)
+        public DepartmentService(IDepartmentRepository repository, IMapper mapper, IEmployeeService employeeService)
         {
             _repository = repository;
             _mapper = mapper;
+            _employeeService = employeeService;
         }
 
         public async Task AddAsync(DepartmentWithoutIdDto dto)
@@ -45,7 +47,7 @@ namespace EmployeeManagement.Services.Services
             Department? department = await _repository.GetByIdAsync(id);
             if (department is null)
             {
-                throw new ArgumentException("No such department exists!");
+                throw new ArgumentNullException("No such department exists!");
             }
             return _mapper.Map<DepartmentWithoutIdDto>(department);
         }
@@ -63,9 +65,9 @@ namespace EmployeeManagement.Services.Services
             return _mapper.Map<List<DepartmentWithoutIdDto>>(departments);
         }
 
-        //public double PercentageOfEmployees()
-        //{
-
-        //}
+        public double PercentageOfAllEmployeesInCurrentDepartment()
+        {
+            return (GetAll().Result.Count / _employeeService.GetAll().Result.Count) * 100;
+        }
     }
 }

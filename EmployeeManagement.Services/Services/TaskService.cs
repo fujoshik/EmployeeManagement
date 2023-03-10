@@ -44,7 +44,7 @@ namespace EmployeeManagement.Services.Services
             EmployeeManagement.DataAccess.Entities.Task? task = await _repository.GetByIdAsync(id);
             if (task is null)
             {
-                throw new ArgumentException("No such task exists!");
+                throw new ArgumentNullException("No such task exists!");
             }
             return _mapper.Map<TaskWithoutIdDto>(task);
         }

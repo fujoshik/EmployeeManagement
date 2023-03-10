@@ -44,7 +44,7 @@ namespace EmployeeManagement.Services.Services
             Employee? employee = await _repository.GetByIdAsync(id);
             if (employee is null)
             {
-                throw new ArgumentException("No such employee exists!");
+                throw new ArgumentNullException("No such employee exists!");
             }
             return _mapper.Map<EmployeeWithoutIdDto>(employee);
         }
@@ -54,7 +54,7 @@ namespace EmployeeManagement.Services.Services
             Employee? employee = _repository.GetEmployeeByEmail(email);
             if (employee is null)
             {
-                throw new ArgumentException();
+                throw new ArgumentNullException("No such employee exists!");
             }
             return _mapper.Map<EmployeeWithoutIdDto>(employee);
         }
@@ -74,7 +74,13 @@ namespace EmployeeManagement.Services.Services
 
         public List<EmployeeWithoutIdDto> TopFiveEmployeesOfTheWeek()
         {
-            
+            var previousMonth = DateTime.Now.AddMonths(-1).Month;
+            var employeesWithTasksFromPreviousMonth = GetAll(e => e.Tasks.Any(t => t.DueDate.Month == previousMonth)).Result;
+            if (employeesWithTasksFromPreviousMonth is null)
+            {
+                throw new ArgumentNullException("No employees with tasks from the previous month");
+            }
+            return employeesWithTasksFromPreviousMonth.OrderBy(e => e.Tasks.Count).Take(5).ToList();
         }
     }
 }

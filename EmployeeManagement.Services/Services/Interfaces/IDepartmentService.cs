@@ -23,7 +23,6 @@ namespace EmployeeManagement.Services.Services.Interfaces
 
         Task DeleteAsync(Guid id);
 
-        //Get all employees by sth?
-        double PercentageOfEmployees();
+        double PercentageOfAllEmployeesInCurrentDepartment();
     }
 }
