@@ -25,5 +25,7 @@ namespace EmployeeManagement.Services.Services.Interfaces
         public EmployeeWithoutIdDto GetEmployeeByEmail(string email);
 
         public List<EmployeeWithoutIdDto> TopFiveEmployeesOfTheWeek();
+
+        public Task<string> DisplayEmployeeInfoByIdAsync(int id);
     }
 }

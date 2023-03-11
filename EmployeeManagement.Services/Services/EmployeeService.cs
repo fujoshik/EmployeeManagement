@@ -88,5 +88,13 @@ namespace EmployeeManagement.Services.Services
             }
             return employeesWithTasksFromPreviousMonth.OrderBy(e => e.Tasks.Count).Take(5).ToList();
         }
+
+        public async Task<string> DisplayEmployeeInfoByIdAsync(int id)
+        {
+            var employee = await GetEmployeeAsync(id);
+            return string.Format($"Employee name: {employee.FullName}{Environment.NewLine}" +
+                $"Email: {employee.Email}{Environment.NewLine}Phone number: {employee.PhoneNumber}{Environment.NewLine}" +
+                $"Date of birth: {employee.DateOfBirth}{Environment.NewLine}Monthly salary: {employee.MonthlySalary}");
+        }
     }
 }

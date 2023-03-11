@@ -57,3 +57,9 @@ D:\Programming\Project\EmployeeManagement\EmployeeManagement\obj\Debug\net6.0\Em
 D:\Programming\Project\EmployeeManagement\EmployeeManagement\obj\Debug\net6.0\EmployeeManagement.genruntimeconfig.cache
 D:\Programming\Project\EmployeeManagement\EmployeeManagement\obj\Debug\net6.0\ref\EmployeeManagement.dll
 D:\Programming\Project\EmployeeManagement\EmployeeManagement\bin\Debug\net6.0\AutoMapper.dll
+D:\Programming\Project\EmployeeManagement\EmployeeManagement\bin\Debug\net6.0\EmployeeManagement.Contracts.dll
+D:\Programming\Project\EmployeeManagement\EmployeeManagement\bin\Debug\net6.0\EmployeeManagement.DataAccess.dll
+D:\Programming\Project\EmployeeManagement\EmployeeManagement\bin\Debug\net6.0\EmployeeManagement.Services.dll
+D:\Programming\Project\EmployeeManagement\EmployeeManagement\bin\Debug\net6.0\EmployeeManagement.Contracts.pdb
+D:\Programming\Project\EmployeeManagement\EmployeeManagement\bin\Debug\net6.0\EmployeeManagement.DataAccess.pdb
+D:\Programming\Project\EmployeeManagement\EmployeeManagement\bin\Debug\net6.0\EmployeeManagement.Services.pdb

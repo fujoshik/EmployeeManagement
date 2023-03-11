@@ -9,9 +9,10 @@ namespace EmployeeManagement.Contracts.DTOs.Task
 {
     public class TaskWithoutIdDto
     {
-        public string? Title { get; set; }
-        public string? Description { get; set; }
-        public EmployeeWithIdDto? Assignee { get; set; }
+        public string Title { get; set; }
+        public string Description { get; set; }
+        public int AssigneeId { get; set; }
+        public EmployeeWithIdDto Assignee { get; set; }
         public DateTime DueDate { get; set; }
     }
 }

@@ -35,7 +35,7 @@ namespace EmployeeManagement
             Console.WriteLine("1 - Create new task");
             Console.WriteLine("2 - Get task by id");
             Console.WriteLine("3 - Update task");
-            Console.WriteLine("4 - Delete task");
+            Console.WriteLine("4 - Delete task by id");
         }
 
         public static void DisplayDepartmentMenu()
@@ -45,7 +45,7 @@ namespace EmployeeManagement
             Console.WriteLine("1 - Create new department");
             Console.WriteLine("2 - Get department by id");
             Console.WriteLine("3 - Update department");
-            Console.WriteLine("4 - Delete department");
+            Console.WriteLine("4 - Delete department by id");
         }
 
         

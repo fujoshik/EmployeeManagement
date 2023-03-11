@@ -28,9 +28,7 @@ namespace EmployeeManagement.DataAccess.Seeders
                     PhoneNumber = "1234567890",
                     DateOfBirth = new DateTime(2000, 1, 18),
                     MonthlySalary = 1200,
-                    Tasks = _tasks.Take(3).ToList(),
-                    Department = _departments[2],
-                    DepartmentId = _departments[2].Id
+                    DepartmentId = 3
                 },
                 new Employee
                 {
@@ -40,9 +38,7 @@ namespace EmployeeManagement.DataAccess.Seeders
                     PhoneNumber = "1234567890",
                     DateOfBirth = new DateTime(1997, 4, 7),
                     MonthlySalary = 1800,
-                    Tasks = _tasks.Skip(3).Take(1).ToList(),
-                    Department = _departments[0],
-                    DepartmentId = _departments[0].Id
+                    DepartmentId = 1
                 },
                 new Employee
                 {
@@ -52,9 +48,7 @@ namespace EmployeeManagement.DataAccess.Seeders
                     PhoneNumber = "1234567890",
                     DateOfBirth = new DateTime(1989, 12, 12),
                     MonthlySalary = 2000,
-                    Tasks = _tasks.Skip(4).Take(2).ToList(),
-                    Department = _departments[1],
-                    DepartmentId = _departments[1].Id
+                    DepartmentId = 2
                 },
                 new Employee
                 {
@@ -64,9 +58,7 @@ namespace EmployeeManagement.DataAccess.Seeders
                     PhoneNumber = "1234567890",
                     DateOfBirth = new DateTime(2003, 7, 25),
                     MonthlySalary = 2000,
-                    Tasks = _tasks.Skip(6).ToList(),
-                    Department = _departments[2],
-                    DepartmentId = _departments[2].Id
+                    DepartmentId = 3
                 }
             };
 
@@ -84,22 +76,19 @@ namespace EmployeeManagement.DataAccess.Seeders
                 {
                     Id = 1,
                     Name = "Finances",
-                    Description = "Manages finances",
-                    Employees = new List<Employee>(){_employees[1]}
+                    Description = "Manages finances"
                 },
                 new Department
                 {
                     Id = 2,
                     Name = "HR",
-                    Description = "Manages people",
-                    Employees = new List<Employee>(){_employees[2]}
+                    Description = "Manages people"
                 },
                 new Department
                 {
                     Id = 3,
                     Name = "IT",
-                    Description = "Manages software",
-                    Employees = new List<Employee>(){_employees[0], _employees[3] }
+                    Description = "Manages software"
                 }
             };
 
@@ -119,8 +108,7 @@ namespace EmployeeManagement.DataAccess.Seeders
                     Title = "Entities",
                     Description = "Implement necessary entities",
                     DueDate = DateTime.Now.AddDays(-3),
-                    Assignee = _employees[0],
-                    AssigneeId = _employees[0].Id
+                    AssigneeId = 1
                 },
                 new Entities.Task
                 {
@@ -128,8 +116,7 @@ namespace EmployeeManagement.DataAccess.Seeders
                     Title = "Interfaces",
                     Description = "Implement necessary interfaces",
                     DueDate = DateTime.Now.AddDays(-15),
-                    Assignee = _employees[0],
-                    AssigneeId = _employees[0].Id
+                    AssigneeId = 1
                 },
                 new Entities.Task
                 {
@@ -137,8 +124,7 @@ namespace EmployeeManagement.DataAccess.Seeders
                     Title = "Repositories",
                     Description = "Implement necessary repositories",
                     DueDate = DateTime.Now.AddDays(-5),
-                    Assignee = _employees[0],
-                    AssigneeId = _employees[0].Id
+                    AssigneeId = 1
                 },
                 new Entities.Task
                 {
@@ -146,8 +132,7 @@ namespace EmployeeManagement.DataAccess.Seeders
                     Title = "Monthy expenses",
                     Description = "Check necessary montly expenses",
                     DueDate = DateTime.Now.AddDays(-8),
-                    Assignee = _employees[1],
-                    AssigneeId = _employees[1].Id
+                    AssigneeId = 2
                 },
                 new Entities.Task
                 {
@@ -155,8 +140,7 @@ namespace EmployeeManagement.DataAccess.Seeders
                     Title = "Internship",
                     Description = "Check applications for internship",
                     DueDate = DateTime.Now.AddDays(-18),
-                    Assignee = _employees[2],
-                    AssigneeId = _employees[2].Id
+                    AssigneeId = 3
                 },
                 new Entities.Task
                 {
@@ -164,8 +148,7 @@ namespace EmployeeManagement.DataAccess.Seeders
                     Title = "Intern Tasks",
                     Description = "Check each intern's task",
                     DueDate = DateTime.Now.AddDays(-3),
-                    Assignee = _employees[2],
-                    AssigneeId = _employees[2].Id
+                    AssigneeId = 3
                 },
                 new Entities.Task
                 {
@@ -173,8 +156,7 @@ namespace EmployeeManagement.DataAccess.Seeders
                     Title = "Entities",
                     Description = "Implement necessary entities",
                     DueDate = DateTime.Now.AddDays(-23),
-                    Assignee = _employees[3],
-                    AssigneeId = _employees[3].Id
+                    AssigneeId = 4
                 },
                 new Entities.Task
                 {
@@ -182,8 +164,7 @@ namespace EmployeeManagement.DataAccess.Seeders
                     Title = "Interfaces",
                     Description = "Implement necessary interfaces",
                     DueDate = DateTime.Now.AddDays(-15),
-                    Assignee = _employees[3],
-                    AssigneeId = _employees[3].Id
+                    AssigneeId = 4
                 },
                 new Entities.Task
                 {
@@ -191,8 +172,7 @@ namespace EmployeeManagement.DataAccess.Seeders
                     Title = "Repositories",
                     Description = "Implement necessary repositories",
                     DueDate = DateTime.Now.AddDays(-5),
-                    Assignee = _employees[3],
-                    AssigneeId = _employees[3].Id
+                    AssigneeId = 4
                 }
             };
 
