@@ -10,7 +10,6 @@ namespace EmployeeManagement.CRUD
 {
     public static class TaskCrud
     {
-        private static int id = 9;
         public static TaskWithoutIdDto CreateTask()
         {
             Console.Write("Title: ");
@@ -33,7 +32,8 @@ namespace EmployeeManagement.CRUD
 
         public static TaskWithIdDto UpdateTask()
         {
-            id++;
+            Console.Write("ID: ");
+            int id = int.Parse(Console.ReadLine());
             Console.Write("Title: ");
             string title = Console.ReadLine();
             Console.Write("Description: ");

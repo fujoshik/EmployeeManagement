@@ -61,5 +61,11 @@ namespace EmployeeManagement.Services.Services
             List<DataAccess.Entities.Task> tasks = await _repository.GetAll(taskFilter).ToListAsync();
             return _mapper.Map<List<TaskWithoutIdDto>>(tasks);
         }
+
+        public async Task<string> DisplayTaskInfoByIdAsync(int id)
+        {
+            var task = await GetTaskAsync(id);
+            return string.Format($"Department name: {task.Title}{Environment.NewLine}Description: {task.Description}{Environment.NewLine}");
+        }
     }
 }

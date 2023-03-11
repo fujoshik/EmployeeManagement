@@ -23,7 +23,7 @@ namespace EmployeeManagement.Services.Services.Interfaces
 
         public Task DeleteAsync(int id);
 
-        public Task<double> PercentageOfAllEmployeesInCurrentDepartmentAsync();
+        public Task<double> PercentageOfAllEmployeesInCurrentDepartmentAsync(int id);
 
         public Task<string> DisplayDepartmentInfoByIdAsync(int id);
 

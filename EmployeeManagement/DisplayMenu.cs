@@ -26,6 +26,7 @@ namespace EmployeeManagement
             Console.WriteLine("4 - Update employee");
             Console.WriteLine("5 - Get top 5 employees:");
             Console.WriteLine("6 - Delete employee by id");
+            Console.WriteLine();
         }
 
         public static void DisplayTaskMenu()
@@ -36,6 +37,7 @@ namespace EmployeeManagement
             Console.WriteLine("2 - Get task by id");
             Console.WriteLine("3 - Update task");
             Console.WriteLine("4 - Delete task by id");
+            Console.WriteLine();
         }
 
         public static void DisplayDepartmentMenu()
@@ -46,8 +48,7 @@ namespace EmployeeManagement
             Console.WriteLine("2 - Get department by id");
             Console.WriteLine("3 - Update department");
             Console.WriteLine("4 - Delete department by id");
-        }
-
-        
+            Console.WriteLine();
+        }      
     }
 }

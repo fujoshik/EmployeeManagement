@@ -74,18 +74,22 @@ namespace EmployeeManagement.Services.Services
             return _mapper.Map<List<EmployeeWithoutIdDto>>(employees);
         }
 
-        public List<EmployeeWithoutIdDto> TopFiveEmployeesOfTheWeek()
+        public async Task<List<EmployeeWithoutIdDto>> TopFiveEmployeesOfTheWeekAsync()
         {
             var previousMonth = DateTime.Now.AddMonths(-1).Month;
-            var employeesWithTasksFromPreviousMonth = GetAllAsync(e => e.Tasks.Any(t => t.DueDate.Month == previousMonth)).Result;
+            var employees = await GetAllAsync();
+            var employeesWithTasksFromPreviousMonth = employees.Where(e => e.Tasks.Any(t => t.DueDate.Month == previousMonth));
+
             if (employeesWithTasksFromPreviousMonth is null)
             {
                 throw new ArgumentNullException("No employees with tasks from the previous month");
             }
+
             if (employeesWithTasksFromPreviousMonth.OrderBy(e => e.Tasks.Count).ToList().Count < 5)
             {
                 return employeesWithTasksFromPreviousMonth.OrderBy(e => e.Tasks.Count).ToList();
             }
+
             return employeesWithTasksFromPreviousMonth.OrderBy(e => e.Tasks.Count).Take(5).ToList();
         }
 

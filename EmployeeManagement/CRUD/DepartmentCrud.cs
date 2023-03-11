@@ -10,7 +10,6 @@ namespace EmployeeManagement.CRUD
 {
     public static class DepartmentCrud
     {
-        private static int id = 3;
         public static DepartmentWithoutIdDto CreateDepartment()
         {
             Console.Write("Name: ");
@@ -27,7 +26,8 @@ namespace EmployeeManagement.CRUD
 
         public static DepartmentWithIdDto UpdateDepartment()
         {
-            id++;
+            Console.Write("ID: ");
+            int id = int.Parse(Console.ReadLine());
             Console.Write("Name: ");
             string name = Console.ReadLine();
             Console.Write("Description: ");

@@ -24,10 +24,9 @@ IEmployeeService employeeService = new EmployeeService(employeeRepo, mapper);
 ITaskService taskService = new TaskService(taskRepo, mapper);
 IDepartmentService departmentService = new DepartmentService(departmentRepo, mapper, employeeService);
 
+await Seed.SeedDepartmentsAsync(dbContext);
 await Seed.SeedEmployeesAsync(dbContext);
 await Seed.SeedTasksAsync(dbContext);
-await Seed.SeedDepartmentsAsync(dbContext);
-
 
 
 
@@ -45,14 +44,14 @@ while(input != "0")
     DisplayMenu.DisplayInitialMenu();
     input = Console.ReadLine();
 }
-Console.WriteLine("Thank you!");
+Console.WriteLine("Thank you for using this program!");
 
 
-void EmployeeMenu()
+async void EmployeeMenu()
 {
     DisplayMenu.DisplayEmployeeMenu();
     string secondInput = Console.ReadLine();
-    while (secondInput != "0")
+    if (secondInput != "0")
     {
         switch (secondInput)
         {
@@ -71,7 +70,8 @@ void EmployeeMenu()
                 Console.WriteLine("Done!");
                 break;
             case "5":
-                Console.WriteLine(string.Join(" ", employeeService.TopFiveEmployeesOfTheWeek().Select(e => e.FullName)));
+                var employees = await employeeService.TopFiveEmployeesOfTheWeekAsync();
+                Console.WriteLine(string.Join(" ", employees.Select(e => e.FullName)));
                 break;
             case "6":
                 employeeService.DeleteAsync(EmployeeCrud.GetEmployeeById());
@@ -79,6 +79,7 @@ void EmployeeMenu()
                 break;
             default: break;
         }
+        Console.ReadKey();
         Console.Clear();
     }
 }
@@ -100,7 +101,7 @@ void TaskMenu()
                 break;
             case "3":
                 taskService.UpdateAsync(TaskCrud.UpdateTask());
-                Console.WriteLine("Done");
+                Console.WriteLine("Done!");
                 break;
             case "4":
                 taskService.DeleteAsync(TaskCrud.GetTaskById());
@@ -108,6 +109,7 @@ void TaskMenu()
                 break;
             default: break;
         }
+        Console.ReadKey();
         Console.Clear();
     }
 }
@@ -116,7 +118,7 @@ void DepartmentMenu()
 {
     DisplayMenu.DisplayDepartmentMenu();
     string secondInput = Console.ReadLine();
-    while (secondInput != "0")
+    if (secondInput != "0")
     {
         switch (secondInput)
         {
@@ -125,7 +127,7 @@ void DepartmentMenu()
                 Console.WriteLine("Done!");
                 break;
             case "2":
-                Console.WriteLine(departmentService.GetDepartmentAsync(DepartmentCrud.GetDepartmentById()).Result.Name);
+                Console.WriteLine(departmentService.DisplayDepartmentInfoByIdAsync(DepartmentCrud.GetDepartmentById()).Result);
                 break;
             case "3":
                 departmentService.UpdateAsync(DepartmentCrud.UpdateDepartment());
@@ -137,6 +139,7 @@ void DepartmentMenu()
                 break;
             default: break;
         }
+        Console.ReadKey();
         Console.Clear();
     }
 }

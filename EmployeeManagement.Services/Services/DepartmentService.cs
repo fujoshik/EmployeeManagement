@@ -65,22 +65,24 @@ namespace EmployeeManagement.Services.Services
             return _mapper.Map<List<DepartmentWithoutIdDto>>(departments);
         }
 
-        public async Task<double> PercentageOfAllEmployeesInCurrentDepartmentAsync()
+        public async Task<double> PercentageOfAllEmployeesInCurrentDepartmentAsync(int id)
         {
             var employeesInDepartment = await GetAllAsync();
             var totalEmployees = await _employeeService.GetAllAsync();
-            return (employeesInDepartment.Count / totalEmployees.Count) * 100;
+            return (employeesInDepartment.Select(d => d.Employees.Where(e => e.DepartmentId == id)).ToList().Count / totalEmployees.Count) * 100;
         }
 
         public async Task<string> DisplayDepartmentInfoByIdAsync(int id)
         {
             var department = await GetDepartmentAsync(id);
-            return string.Format($"Department name: {department.Name}{Environment.NewLine}Description: {department.Description}{Environment.NewLine}The percantage of all employees that work here: {PercentageOfAllEmployeesInCurrentDepartmentAsync()}");
+            var percentage = await PercentageOfAllEmployeesInCurrentDepartmentAsync(id);
+            return string.Format($"Department name: {department.Name}{Environment.NewLine}Description: {department.Description}{Environment.NewLine}The percantage of all employees that work here: {percentage}");
         }
 
         public async Task<string> TopDepartmentOfTheMonthInfoAsync()
         {
-            var departmentId = _employeeService.TopFiveEmployeesOfTheWeek().First().DepartmentId;
+            var departments = await _employeeService.TopFiveEmployeesOfTheWeekAsync();
+            int departmentId = departments.First().DepartmentId;
             return await DisplayDepartmentInfoByIdAsync(departmentId);
         }
     }

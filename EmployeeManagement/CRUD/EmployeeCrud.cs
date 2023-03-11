@@ -9,7 +9,6 @@ namespace EmployeeManagement.CRUD
 {
     public static class EmployeeCrud
     {
-        private static int id = 4;
         public static EmployeeWithoutIdDto CreateEmployee()
         {
             Console.Write("Full name: ");
@@ -18,7 +17,7 @@ namespace EmployeeManagement.CRUD
             string email = Console.ReadLine();
             Console.Write("Phone number: ");
             string phone = Console.ReadLine();
-            Console.Write("Date of birth (yyyy-MM-dd: ");
+            Console.Write("Date of birth (yyyy-MM-dd): ");
             DateTime dateOfBirth = DateTime.Parse(Console.ReadLine());
             Console.Write("Monthly salary: ");
             decimal salary = decimal.Parse(Console.ReadLine());
@@ -38,19 +37,20 @@ namespace EmployeeManagement.CRUD
 
         public static EmployeeWithIdDto UpdateEmployee()
         {
-            id++;
+            Console.Write("ID: ");
+            int id = int.Parse(Console.ReadLine());
             Console.Write("Full name: ");
             string name = Console.ReadLine();
             Console.Write("Email: ");
             string email = Console.ReadLine();
             Console.Write("Phone number: ");
             string phone = Console.ReadLine();
-            Console.Write("Date of birth (yyyy-MM-dd: ");
+            Console.Write("Date of birth (yyyy-MM-dd): ");
             DateTime dateOfBirth = DateTime.Parse(Console.ReadLine());
             Console.Write("Monthly salary: ");
             decimal salary = decimal.Parse(Console.ReadLine());
             Console.Write("Department ID: ");
-            string depId = Console.ReadLine();
+            int depId = int.Parse(Console.ReadLine());
 
             return new EmployeeWithIdDto()
             {
@@ -60,7 +60,7 @@ namespace EmployeeManagement.CRUD
                 PhoneNumber = phone,
                 DateOfBirth = dateOfBirth,
                 MonthlySalary = salary,
-                DepartmentId = int.Parse(depId)
+                DepartmentId = depId
             };
         }
         public static int GetEmployeeById()
