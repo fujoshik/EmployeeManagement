@@ -8,6 +8,9 @@ namespace EmployeeManagement.DataAccess.Entities
 {
     public class BaseEntity
     {
-        public Guid Id { get; set; }
+        // The chosen type of the Id is int so that the application doesn't get overcomplicated
+        // (and it's easier to demonstrate the functionality.
+        // Otherwise, the chosen type would have been Guid
+        public int Id { get; set; } 
     }
 }

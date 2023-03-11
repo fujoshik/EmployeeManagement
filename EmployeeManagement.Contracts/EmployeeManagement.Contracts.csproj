@@ -10,4 +10,8 @@
     <PackageReference Include="AutoMapper" Version="11.0.1" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\EmployeeManagement.DataAccess\EmployeeManagement.DataAccess.csproj" />
+  </ItemGroup>
+
 </Project>

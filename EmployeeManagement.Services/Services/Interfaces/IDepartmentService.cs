@@ -11,18 +11,22 @@ namespace EmployeeManagement.Services.Services.Interfaces
 {
     public interface IDepartmentService
     {
-        Task<List<DepartmentWithoutIdDto>> GetAll();
+        public Task<List<DepartmentWithoutIdDto>> GetAllAsync();
 
-        Task<List<DepartmentWithoutIdDto>> GetAll(Expression<Func<DepartmentWithIdDto, bool>> filter);
+        public Task<List<DepartmentWithoutIdDto>> GetAllAsync(Expression<Func<DepartmentWithIdDto, bool>> filter);
 
-        Task<DepartmentWithoutIdDto> GetDepartmentAsync(Guid id);
+        public Task<DepartmentWithoutIdDto> GetDepartmentAsync(int id);
 
-        Task AddAsync(DepartmentWithoutIdDto dto);
+        public Task AddAsync(DepartmentWithoutIdDto dto);
 
-        Task UpdateAsync(DepartmentWithIdDto dto);
+        public Task UpdateAsync(DepartmentWithIdDto dto);
 
-        Task DeleteAsync(Guid id);
+        public Task DeleteAsync(int id);
 
-        double PercentageOfAllEmployeesInCurrentDepartment();
+        public Task<double> PercentageOfAllEmployeesInCurrentDepartmentAsync();
+
+        public Task<string> DisplayDepartmentInfoByIdAsync(int id);
+
+        public Task<string> TopDepartmentOfTheMonthInfoAsync();
     }
 }

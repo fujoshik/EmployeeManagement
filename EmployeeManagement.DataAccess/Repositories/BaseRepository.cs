@@ -29,7 +29,7 @@ namespace EmployeeManagement.DataAccess.Repositories
             return _context.Set<T>().Where(filter);
         }
 
-        public virtual async ValueTask<T?> GetByIdAsync(Guid id)
+        public virtual async ValueTask<T> GetByIdAsync(int id)
         {
             return await _context.Set<T>().FindAsync(id);
         }
@@ -54,7 +54,7 @@ namespace EmployeeManagement.DataAccess.Repositories
             await _context.SaveChangesAsync();
         }
 
-        public virtual async System.Threading.Tasks.Task DeleteAsync(Guid id)
+        public virtual async System.Threading.Tasks.Task DeleteAsync(int id)
         {
             var entity = await GetByIdAsync(id);
 

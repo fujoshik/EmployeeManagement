@@ -803,7 +803,8 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
-          "AutoMapper": "11.0.1"
+          "AutoMapper": "11.0.1",
+          "EmployeeManagement.DataAccess": "1.0.0"
         },
         "compile": {
           "bin/placeholder/EmployeeManagement.Contracts.dll": {}
@@ -817,7 +818,6 @@
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
           "AutoMapper": "11.0.1",
-          "EmployeeManagement.Contracts": "1.0.0",
           "Microsoft.EntityFrameworkCore": "6.0.9",
           "Microsoft.EntityFrameworkCore.SqlServer": "6.0.9"
         },

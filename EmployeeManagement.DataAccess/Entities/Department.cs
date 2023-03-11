@@ -8,9 +8,8 @@ namespace EmployeeManagement.DataAccess.Entities
 {
     public class Department : BaseEntity
     {
-        //Data annotations?
-        public string? Name { get; set; }
-        public string? Description { get; set; }
-        public ICollection<Employee>? Employees { get; set; } = new List<Employee>();
+        public string Name { get; set; }
+        public string Description { get; set; }
+        public ICollection<Employee> Employees { get; set; }
     }
 }

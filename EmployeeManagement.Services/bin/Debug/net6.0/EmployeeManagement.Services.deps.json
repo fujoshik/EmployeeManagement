@@ -499,7 +499,8 @@
       },
       "EmployeeManagement.Contracts/1.0.0": {
         "dependencies": {
-          "AutoMapper": "11.0.1"
+          "AutoMapper": "11.0.1",
+          "EmployeeManagement.DataAccess": "1.0.0"
         },
         "runtime": {
           "EmployeeManagement.Contracts.dll": {}
@@ -508,7 +509,6 @@
       "EmployeeManagement.DataAccess/1.0.0": {
         "dependencies": {
           "AutoMapper": "11.0.1",
-          "EmployeeManagement.Contracts": "1.0.0",
           "Microsoft.EntityFrameworkCore": "6.0.9",
           "Microsoft.EntityFrameworkCore.SqlServer": "6.0.9"
         },

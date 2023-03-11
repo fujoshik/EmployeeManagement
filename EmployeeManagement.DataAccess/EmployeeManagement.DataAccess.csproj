@@ -16,8 +16,4 @@
     </PackageReference>
   </ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\EmployeeManagement.Contracts\EmployeeManagement.Contracts.csproj" />
-  </ItemGroup>
-
 </Project>

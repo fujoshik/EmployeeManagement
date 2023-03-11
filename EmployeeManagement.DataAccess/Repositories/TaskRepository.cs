@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace EmployeeManagement.DataAccess.Repositories
 {
-    public class TaskRepository : BaseRepository<EmployeeManagement.DataAccess.Entities.Task>, ITaskRepository
+    public class TaskRepository : BaseRepository<Entities.Task>, ITaskRepository
     {
         public TaskRepository(EmployeeManagementDbContext _context) 
             : base(_context) 

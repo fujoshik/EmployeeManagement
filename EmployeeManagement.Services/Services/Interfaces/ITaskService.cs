@@ -11,16 +11,16 @@ namespace EmployeeManagement.Services.Services.Interfaces
 {
     public interface ITaskService
     {
-        Task<List<TaskWithoutIdDto>> GetAll();
+        public Task<List<TaskWithoutIdDto>> GetAllAsync();
 
-        Task<List<TaskWithoutIdDto>> GetAll(Expression<Func<TaskWithIdDto, bool>> filter);
+        public Task<List<TaskWithoutIdDto>> GetAllAsync(Expression<Func<TaskWithIdDto, bool>> filter);
 
-        Task<TaskWithoutIdDto> GetTaskAsync(Guid id);
+        public Task<TaskWithoutIdDto> GetTaskAsync(int id);
 
-        Task AddAsync(TaskWithoutIdDto dto);
+        public Task AddAsync(TaskWithoutIdDto dto);
 
-        Task UpdateAsync(TaskWithIdDto dto);
+        public Task UpdateAsync(TaskWithIdDto dto);
 
-        Task DeleteAsync(Guid id);
+        public Task DeleteAsync(int id);
     }
 }

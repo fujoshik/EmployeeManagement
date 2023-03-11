@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using EmployeeManagement.Contracts.DTOs.Employee;
+using EmployeeManagement.Contracts.DTOs.Department;
 using EmployeeManagement.DataAccess.Entities;
 using EmployeeManagement.DataAccess.Repositories.Interfaces;
 using EmployeeManagement.Services.Services.Interfaces;
@@ -9,6 +10,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
+using Task = System.Threading.Tasks.Task;
 
 namespace EmployeeManagement.Services.Services
 {
@@ -23,23 +25,23 @@ namespace EmployeeManagement.Services.Services
             _mapper = mapper;
         }
 
-        public async System.Threading.Tasks.Task AddAsync(EmployeeWithoutIdDto dto)
+        public async Task AddAsync(EmployeeWithoutIdDto dto)
         {
             Employee employee = _mapper.Map<Employee>(dto);
 
             await _repository.CreateAsync(employee);
         }
-        public async System.Threading.Tasks.Task DeleteAsync(Guid id)
+        public async Task DeleteAsync(int id)
         {
             await _repository.DeleteAsync(id);
         }
-        public async System.Threading.Tasks.Task UpdateAsync(EmployeeWithIdDto dto)
+        public async Task UpdateAsync(EmployeeWithIdDto dto)
         {
             Employee employee = _mapper.Map<Employee>(dto);
 
             await _repository.UpdateAsync(employee);
         }
-        public async Task<EmployeeWithoutIdDto> GetEmployeeAsync(Guid id)
+        public async Task<EmployeeWithoutIdDto> GetEmployeeAsync(int id)
         {
             Employee? employee = await _repository.GetByIdAsync(id);
             if (employee is null)
@@ -59,13 +61,13 @@ namespace EmployeeManagement.Services.Services
             return _mapper.Map<EmployeeWithoutIdDto>(employee);
         }
 
-        public async Task<List<EmployeeWithoutIdDto>> GetAll()
+        public async Task<List<EmployeeWithoutIdDto>> GetAllAsync()
         {
             List<Employee> employee = await _repository.GetAll().ToListAsync();
             return _mapper.Map<List<EmployeeWithoutIdDto>>(employee);
         }
 
-        public async Task<List<EmployeeWithoutIdDto>> GetAll(Expression<Func<EmployeeWithIdDto, bool>> filter)
+        public async Task<List<EmployeeWithoutIdDto>> GetAllAsync(Expression<Func<EmployeeWithIdDto, bool>> filter)
         {
             var employeeFilter = _mapper.Map<Expression<Func<Employee, bool>>>(filter);
             List<Employee> employees = await _repository.GetAll(employeeFilter).ToListAsync();
@@ -75,10 +77,14 @@ namespace EmployeeManagement.Services.Services
         public List<EmployeeWithoutIdDto> TopFiveEmployeesOfTheWeek()
         {
             var previousMonth = DateTime.Now.AddMonths(-1).Month;
-            var employeesWithTasksFromPreviousMonth = GetAll(e => e.Tasks.Any(t => t.DueDate.Month == previousMonth)).Result;
+            var employeesWithTasksFromPreviousMonth = GetAllAsync(e => e.Tasks.Any(t => t.DueDate.Month == previousMonth)).Result;
             if (employeesWithTasksFromPreviousMonth is null)
             {
                 throw new ArgumentNullException("No employees with tasks from the previous month");
+            }
+            if (employeesWithTasksFromPreviousMonth.OrderBy(e => e.Tasks.Count).ToList().Count < 5)
+            {
+                return employeesWithTasksFromPreviousMonth.OrderBy(e => e.Tasks.Count).ToList();
             }
             return employeesWithTasksFromPreviousMonth.OrderBy(e => e.Tasks.Count).Take(5).ToList();
         }

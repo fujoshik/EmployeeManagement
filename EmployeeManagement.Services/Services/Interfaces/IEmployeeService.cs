@@ -10,19 +10,20 @@ namespace EmployeeManagement.Services.Services.Interfaces
 {
     public interface IEmployeeService
     {
-        Task<List<EmployeeWithoutIdDto>> GetAll();
+        public Task<List<EmployeeWithoutIdDto>> GetAllAsync();
 
-        Task<List<EmployeeWithoutIdDto>> GetAll(Expression<Func<EmployeeWithIdDto, bool>> filter);
+        public Task<List<EmployeeWithoutIdDto>> GetAllAsync(Expression<Func<EmployeeWithIdDto, bool>> filter);
 
-        Task<EmployeeWithoutIdDto> GetEmployeeAsync(Guid id);
+        public Task<EmployeeWithoutIdDto> GetEmployeeAsync(int id);
 
-        Task AddAsync(EmployeeWithoutIdDto dto);
+        public Task AddAsync(EmployeeWithoutIdDto dto);
 
-        Task UpdateAsync(EmployeeWithIdDto dto);
+        public Task UpdateAsync(EmployeeWithIdDto dto);
 
-        Task DeleteAsync(Guid id);
-        EmployeeWithoutIdDto GetEmployeeByEmail(string email);
+        public Task DeleteAsync(int id);
 
-        List<EmployeeWithoutIdDto> TopFiveEmployeesOfTheWeek();
+        public EmployeeWithoutIdDto GetEmployeeByEmail(string email);
+
+        public List<EmployeeWithoutIdDto> TopFiveEmployeesOfTheWeek();
     }
 }

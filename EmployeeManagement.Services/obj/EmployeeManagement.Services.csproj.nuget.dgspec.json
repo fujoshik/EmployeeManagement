@@ -27,7 +27,11 @@
         "frameworks": {
           "net6.0": {
             "targetAlias": "net6.0",
-            "projectReferences": {}
+            "projectReferences": {
+              "D:\\Programming\\Project\\EmployeeManagement\\EmployeeManagement.DataAccess\\EmployeeManagement.DataAccess.csproj": {
+                "projectPath": "D:\\Programming\\Project\\EmployeeManagement\\EmployeeManagement.DataAccess\\EmployeeManagement.DataAccess.csproj"
+              }
+            }
           }
         },
         "warningProperties": {
@@ -88,11 +92,7 @@
         "frameworks": {
           "net6.0": {
             "targetAlias": "net6.0",
-            "projectReferences": {
-              "D:\\Programming\\Project\\EmployeeManagement\\EmployeeManagement.Contracts\\EmployeeManagement.Contracts.csproj": {
-                "projectPath": "D:\\Programming\\Project\\EmployeeManagement\\EmployeeManagement.Contracts\\EmployeeManagement.Contracts.csproj"
-              }
-            }
+            "projectReferences": {}
           }
         },
         "warningProperties": {

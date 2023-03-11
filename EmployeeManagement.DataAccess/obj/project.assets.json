@@ -798,19 +798,6 @@
             "rid": "win"
           }
         }
-      },
-      "EmployeeManagement.Contracts/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v6.0",
-        "dependencies": {
-          "AutoMapper": "11.0.1"
-        },
-        "compile": {
-          "bin/placeholder/EmployeeManagement.Contracts.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/EmployeeManagement.Contracts.dll": {}
-        }
       }
     }
   },
@@ -2048,17 +2035,11 @@
         "useSharedDesignerContext.txt",
         "version.txt"
       ]
-    },
-    "EmployeeManagement.Contracts/1.0.0": {
-      "type": "project",
-      "path": "../EmployeeManagement.Contracts/EmployeeManagement.Contracts.csproj",
-      "msbuildProject": "../EmployeeManagement.Contracts/EmployeeManagement.Contracts.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net6.0": [
       "AutoMapper >= 11.0.1",
-      "EmployeeManagement.Contracts >= 1.0.0",
       "Microsoft.EntityFrameworkCore >= 6.0.9",
       "Microsoft.EntityFrameworkCore.SqlServer >= 6.0.9",
       "Microsoft.EntityFrameworkCore.Tools >= 6.0.9"
@@ -2090,11 +2071,7 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
-          "projectReferences": {
-            "D:\\Programming\\Project\\EmployeeManagement\\EmployeeManagement.Contracts\\EmployeeManagement.Contracts.csproj": {
-              "projectPath": "D:\\Programming\\Project\\EmployeeManagement\\EmployeeManagement.Contracts\\EmployeeManagement.Contracts.csproj"
-            }
-          }
+          "projectReferences": {}
         }
       },
       "warningProperties": {

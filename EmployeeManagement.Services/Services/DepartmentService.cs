@@ -32,7 +32,7 @@ namespace EmployeeManagement.Services.Services
 
             await _repository.CreateAsync(department);
         }
-        public async Task DeleteAsync(Guid id)
+        public async Task DeleteAsync(int id)
         {
             await _repository.DeleteAsync(id);
         }
@@ -42,7 +42,7 @@ namespace EmployeeManagement.Services.Services
 
             await _repository.UpdateAsync(department);
         }
-        public async Task<DepartmentWithoutIdDto> GetDepartmentAsync(Guid id)
+        public async Task<DepartmentWithoutIdDto> GetDepartmentAsync(int id)
         {
             Department? department = await _repository.GetByIdAsync(id);
             if (department is null)
@@ -52,22 +52,36 @@ namespace EmployeeManagement.Services.Services
             return _mapper.Map<DepartmentWithoutIdDto>(department);
         }
 
-        public async Task<List<DepartmentWithoutIdDto>> GetAll()
+        public async Task<List<DepartmentWithoutIdDto>> GetAllAsync()
         {
             List<Department> departments = await _repository.GetAll().ToListAsync();
             return _mapper.Map<List<DepartmentWithoutIdDto>>(departments);
         }
 
-        public async Task<List<DepartmentWithoutIdDto>> GetAll(Expression<Func<DepartmentWithIdDto, bool>> filter)
+        public async Task<List<DepartmentWithoutIdDto>> GetAllAsync(Expression<Func<DepartmentWithIdDto, bool>> filter)
         {
             var departmentFilter = _mapper.Map<Expression<Func<Department, bool>>>(filter);
             List<Department> departments = await _repository.GetAll(departmentFilter).ToListAsync();
             return _mapper.Map<List<DepartmentWithoutIdDto>>(departments);
         }
 
-        public double PercentageOfAllEmployeesInCurrentDepartment()
+        public async Task<double> PercentageOfAllEmployeesInCurrentDepartmentAsync()
         {
-            return (GetAll().Result.Count / _employeeService.GetAll().Result.Count) * 100;
+            var employeesInDepartment = await GetAllAsync();
+            var totalEmployees = await _employeeService.GetAllAsync();
+            return (employeesInDepartment.Count / totalEmployees.Count) * 100;
+        }
+
+        public async Task<string> DisplayDepartmentInfoByIdAsync(int id)
+        {
+            var department = await GetDepartmentAsync(id);
+            return string.Format($"Department name: {department.Name}{Environment.NewLine}Description: {department.Description}{Environment.NewLine}The percantage of all employees that work here: {PercentageOfAllEmployeesInCurrentDepartmentAsync()}");
+        }
+
+        public async Task<string> TopDepartmentOfTheMonthInfoAsync()
+        {
+            var departmentId = _employeeService.TopFiveEmployeesOfTheWeek().First().DepartmentId;
+            return await DisplayDepartmentInfoByIdAsync(departmentId);
         }
     }
 }

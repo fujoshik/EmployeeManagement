@@ -25,23 +25,23 @@ namespace EmployeeManagement.Services.Services
 
         public async Task AddAsync(TaskWithoutIdDto dto)
         {
-            EmployeeManagement.DataAccess.Entities.Task task = _mapper.Map<EmployeeManagement.DataAccess.Entities.Task>(dto);
+            DataAccess.Entities.Task task = _mapper.Map<DataAccess.Entities.Task>(dto);
 
             await _repository.CreateAsync(task);
         }
-        public async Task DeleteAsync(Guid id)
+        public async Task DeleteAsync(int id)
         {
             await _repository.DeleteAsync(id);
         }
         public async Task UpdateAsync(TaskWithIdDto dto)
         {
-            EmployeeManagement.DataAccess.Entities.Task task = _mapper.Map<EmployeeManagement.DataAccess.Entities.Task>(dto);
+            DataAccess.Entities.Task task = _mapper.Map<DataAccess.Entities.Task>(dto);
 
             await _repository.UpdateAsync(task);
         }
-        public async Task<TaskWithoutIdDto> GetTaskAsync(Guid id)
+        public async Task<TaskWithoutIdDto> GetTaskAsync(int id)
         {
-            EmployeeManagement.DataAccess.Entities.Task? task = await _repository.GetByIdAsync(id);
+            DataAccess.Entities.Task? task = await _repository.GetByIdAsync(id);
             if (task is null)
             {
                 throw new ArgumentNullException("No such task exists!");
@@ -49,16 +49,16 @@ namespace EmployeeManagement.Services.Services
             return _mapper.Map<TaskWithoutIdDto>(task);
         }
 
-        public async Task<List<TaskWithoutIdDto>> GetAll()
+        public async Task<List<TaskWithoutIdDto>> GetAllAsync()
         {
-            List<EmployeeManagement.DataAccess.Entities.Task> tasks = await _repository.GetAll().ToListAsync();
+            List<DataAccess.Entities.Task> tasks = await _repository.GetAll().ToListAsync();
             return _mapper.Map<List<TaskWithoutIdDto>>(tasks);
         }
 
-        public async Task<List<TaskWithoutIdDto>> GetAll(Expression<Func<TaskWithIdDto, bool>> filter)
+        public async Task<List<TaskWithoutIdDto>> GetAllAsync(Expression<Func<TaskWithIdDto, bool>> filter)
         {
-            var taskFilter = _mapper.Map<Expression<Func<EmployeeManagement.DataAccess.Entities.Task, bool>>>(filter);
-            List<EmployeeManagement.DataAccess.Entities.Task> tasks = await _repository.GetAll(taskFilter).ToListAsync();
+            var taskFilter = _mapper.Map<Expression<Func<DataAccess.Entities.Task, bool>>>(filter);
+            List<DataAccess.Entities.Task> tasks = await _repository.GetAll(taskFilter).ToListAsync();
             return _mapper.Map<List<TaskWithoutIdDto>>(tasks);
         }
     }

@@ -12,6 +12,3 @@ D:\Programming\Project\EmployeeManagement\EmployeeManagement.DataAccess\obj\Debu
 D:\Programming\Project\EmployeeManagement\EmployeeManagement.DataAccess\obj\Debug\net6.0\EmployeeManagement.DataAccess.pdb
 D:\Programming\Project\EmployeeManagement\EmployeeManagement.DataAccess\obj\Debug\net6.0\EmployeeManagement.DataAccess.genruntimeconfig.cache
 D:\Programming\Project\EmployeeManagement\EmployeeManagement.DataAccess\obj\Debug\net6.0\ref\EmployeeManagement.DataAccess.dll
-D:\Programming\Project\EmployeeManagement\EmployeeManagement.DataAccess\bin\Debug\net6.0\EmployeeManagement.Contracts.dll
-D:\Programming\Project\EmployeeManagement\EmployeeManagement.DataAccess\bin\Debug\net6.0\EmployeeManagement.Contracts.pdb
-D:\Programming\Project\EmployeeManagement\EmployeeManagement.DataAccess\obj\Debug\net6.0\EmployeeManagement.DataAccess.csproj.CopyComplete
