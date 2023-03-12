@@ -1,6 +1,7 @@
 ﻿using EmployeeManagement.DataAccess;
 using EmployeeManagement.DataAccess.Entities;
 using EmployeeManagement.DataAccess.Repositories.Interfaces;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,9 +21,9 @@ namespace EmployeeManagement.DataAccess.Repositories
         {
             return _context.Employees.SingleOrDefault(x => x.Email == email);
         }
-        public override System.Threading.Tasks.Task CreateAsync(Employee entity)
+        public override IQueryable<Employee> GetAll()
         {
-            return base.CreateAsync(entity);
+            return _context.Set<Employee>().AsQueryable().Include(x => x.Tasks);
         }
     }
 }

@@ -63,14 +63,14 @@ namespace EmployeeManagement.Services.Services
 
         public async Task<List<EmployeeWithoutIdDto>> GetAllAsync()
         {
-            List<Employee> employee = await _repository.GetAll().ToListAsync();
+            List<Employee> employee = await _repository.GetAll().Include(x => x.Tasks).ToListAsync();
             return _mapper.Map<List<EmployeeWithoutIdDto>>(employee);
         }
 
         public async Task<List<EmployeeWithoutIdDto>> GetAllAsync(Expression<Func<EmployeeWithIdDto, bool>> filter)
         {
             var employeeFilter = _mapper.Map<Expression<Func<Employee, bool>>>(filter);
-            List<Employee> employees = await _repository.GetAll(employeeFilter).ToListAsync();
+            List<Employee> employees = await _repository.GetAll(employeeFilter).Include(x => x.Tasks).ToListAsync();
             return _mapper.Map<List<EmployeeWithoutIdDto>>(employees);
         }
 

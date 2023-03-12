@@ -65,7 +65,7 @@ namespace EmployeeManagement.Services.Services
         public async Task<string> DisplayTaskInfoByIdAsync(int id)
         {
             var task = await GetTaskAsync(id);
-            return string.Format($"Department name: {task.Title}{Environment.NewLine}Description: {task.Description}{Environment.NewLine}");
+            return string.Format($"Title: {task.Title}{Environment.NewLine}Description: {task.Description}{Environment.NewLine}");
         }
     }
 }

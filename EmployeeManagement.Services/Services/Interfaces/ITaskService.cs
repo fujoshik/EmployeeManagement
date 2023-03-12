@@ -22,5 +22,7 @@ namespace EmployeeManagement.Services.Services.Interfaces
         public Task UpdateAsync(TaskWithIdDto dto);
 
         public Task DeleteAsync(int id);
+
+        public Task<string> DisplayTaskInfoByIdAsync(int id);
     }
 }

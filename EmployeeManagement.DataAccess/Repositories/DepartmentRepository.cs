@@ -1,5 +1,6 @@
 ﻿using EmployeeManagement.DataAccess.Entities;
 using EmployeeManagement.DataAccess.Repositories.Interfaces;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,6 +14,10 @@ namespace EmployeeManagement.DataAccess.Repositories
         public DepartmentRepository(EmployeeManagementDbContext _context)
             : base(_context)
         {
+        }
+        public override IQueryable<Department> GetAll()
+        {
+            return _context.Set<Department>().AsQueryable().Include(x => x.Employees);
         }
     }
 }

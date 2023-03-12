@@ -70,8 +70,7 @@ async void EmployeeMenu()
                 Console.WriteLine("Done!");
                 break;
             case "5":
-                var employees = await employeeService.TopFiveEmployeesOfTheWeekAsync();
-                Console.WriteLine(string.Join(" ", employees.Select(e => e.FullName)));
+                Console.WriteLine(string.Join("; ", employeeService.TopFiveEmployeesOfTheWeekAsync().Result.Select(e => e.FullName)));
                 break;
             case "6":
                 employeeService.DeleteAsync(EmployeeCrud.GetEmployeeById());
@@ -97,7 +96,7 @@ void TaskMenu()
                 Console.WriteLine("Done!");
                 break;
             case "2":
-                Console.WriteLine(taskService.GetTaskAsync(TaskCrud.GetTaskById()).Result.Title);
+                Console.WriteLine(taskService.DisplayTaskInfoByIdAsync(TaskCrud.GetTaskById()).Result);
                 break;
             case "3":
                 taskService.UpdateAsync(TaskCrud.UpdateTask());

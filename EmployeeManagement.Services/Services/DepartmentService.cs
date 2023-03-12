@@ -67,16 +67,16 @@ namespace EmployeeManagement.Services.Services
 
         public async Task<double> PercentageOfAllEmployeesInCurrentDepartmentAsync(int id)
         {
-            var employeesInDepartment = await GetAllAsync();
             var totalEmployees = await _employeeService.GetAllAsync();
-            return (employeesInDepartment.Select(d => d.Employees.Where(e => e.DepartmentId == id)).ToList().Count / totalEmployees.Count) * 100;
+            var employeesFromDepartment = totalEmployees.Select(e => e.DepartmentId == id).ToList();
+            return employeesFromDepartment.Count / totalEmployees.Count * 100;
         }
 
         public async Task<string> DisplayDepartmentInfoByIdAsync(int id)
         {
             var department = await GetDepartmentAsync(id);
-            var percentage = await PercentageOfAllEmployeesInCurrentDepartmentAsync(id);
-            return string.Format($"Department name: {department.Name}{Environment.NewLine}Description: {department.Description}{Environment.NewLine}The percantage of all employees that work here: {percentage}");
+            double percentage = await PercentageOfAllEmployeesInCurrentDepartmentAsync(id);
+            return string.Format($"Department name: {department.Name}{Environment.NewLine}Description: {department.Description}{Environment.NewLine}The percentage of all employees that work here: {percentage}");
         }
 
         public async Task<string> TopDepartmentOfTheMonthInfoAsync()
