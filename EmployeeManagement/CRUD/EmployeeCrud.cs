@@ -37,19 +37,19 @@ namespace EmployeeManagement.CRUD
 
         public static EmployeeWithIdDto UpdateEmployee()
         {
-            Console.Write("ID: ");
+            Console.Write("Current ID: ");
             int id = int.Parse(Console.ReadLine());
-            Console.Write("Full name: ");
+            Console.Write("New full name: ");
             string name = Console.ReadLine();
-            Console.Write("Email: ");
+            Console.Write("New email: ");
             string email = Console.ReadLine();
-            Console.Write("Phone number: ");
+            Console.Write("New phone number: ");
             string phone = Console.ReadLine();
-            Console.Write("Date of birth (yyyy-MM-dd): ");
+            Console.Write("New date of birth (yyyy-MM-dd): ");
             DateTime dateOfBirth = DateTime.Parse(Console.ReadLine());
-            Console.Write("Monthly salary: ");
+            Console.Write("New monthly salary: ");
             decimal salary = decimal.Parse(Console.ReadLine());
-            Console.Write("Department ID: ");
+            Console.Write("New department ID: ");
             int depId = int.Parse(Console.ReadLine());
 
             return new EmployeeWithIdDto()

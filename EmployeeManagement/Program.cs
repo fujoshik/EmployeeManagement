@@ -1,6 +1,5 @@
 ﻿using AutoMapper;
 using EmployeeManagement;
-using EmployeeManagement.Contracts.DTOs.Employee;
 using EmployeeManagement.Contracts.MapperConfiguration;
 using EmployeeManagement.CRUD;
 using EmployeeManagement.DataAccess;

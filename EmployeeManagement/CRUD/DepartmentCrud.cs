@@ -26,11 +26,11 @@ namespace EmployeeManagement.CRUD
 
         public static DepartmentWithIdDto UpdateDepartment()
         {
-            Console.Write("ID: ");
+            Console.Write("Current ID: ");
             int id = int.Parse(Console.ReadLine());
-            Console.Write("Name: ");
+            Console.Write("New name: ");
             string name = Console.ReadLine();
-            Console.Write("Description: ");
+            Console.Write("New description: ");
             string description = Console.ReadLine();
 
             return new DepartmentWithIdDto()

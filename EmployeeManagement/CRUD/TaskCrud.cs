@@ -32,15 +32,15 @@ namespace EmployeeManagement.CRUD
 
         public static TaskWithIdDto UpdateTask()
         {
-            Console.Write("ID: ");
+            Console.Write("Current ID: ");
             int id = int.Parse(Console.ReadLine());
-            Console.Write("Title: ");
+            Console.Write("New title: ");
             string title = Console.ReadLine();
-            Console.Write("Description: ");
+            Console.Write("New description: ");
             string description = Console.ReadLine();
-            Console.Write("Assignee ID: ");
+            Console.Write("New assignee ID: ");
             int assigneeId = int.Parse(Console.ReadLine());
-            Console.Write("Due date (yyyy-MM-dd): ");
+            Console.Write("New due date (yyyy-MM-dd): ");
             DateTime dueDate = DateTime.Parse(Console.ReadLine());
 
             return new TaskWithIdDto()
