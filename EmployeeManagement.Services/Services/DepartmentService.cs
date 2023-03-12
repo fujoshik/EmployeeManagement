@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using EmployeeManagement.Contracts.DTOs.Department;
+using EmployeeManagement.Contracts.DTOs.Employee;
 using EmployeeManagement.DataAccess.Entities;
 using EmployeeManagement.DataAccess.Repositories.Interfaces;
 using EmployeeManagement.Services.Services.Interfaces;
@@ -68,22 +69,23 @@ namespace EmployeeManagement.Services.Services
         public async Task<double> PercentageOfAllEmployeesInCurrentDepartmentAsync(int id)
         {
             var totalEmployees = await _employeeService.GetAllAsync();
-            var employeesFromDepartment = totalEmployees.Select(e => e.DepartmentId == id).ToList();
-            return employeesFromDepartment.Count / totalEmployees.Count * 100;
+            List<EmployeeWithoutIdDto> employeesFromDepartment = totalEmployees.Where(e => e.DepartmentId == id).ToList();
+            double percentage = (double)employeesFromDepartment.Count / (double)totalEmployees.Count * 100;
+            return percentage;
         }
 
         public async Task<string> DisplayDepartmentInfoByIdAsync(int id)
         {
             var department = await GetDepartmentAsync(id);
             double percentage = await PercentageOfAllEmployeesInCurrentDepartmentAsync(id);
-            return string.Format($"Department name: {department.Name}{Environment.NewLine}Description: {department.Description}{Environment.NewLine}The percentage of all employees that work here: {percentage}");
+            return string.Format($"Department name: {department.Name}{Environment.NewLine}Description: {department.Description}{Environment.NewLine}The percentage of all employees that work here: {percentage}%");
         }
 
-        public async Task<string> TopDepartmentOfTheMonthInfoAsync()
+        public async Task<List<int>> TopDepartmentOfTheMonthInfoAsync()
         {
-            var departments = await _employeeService.TopFiveEmployeesOfTheWeekAsync();
-            int departmentId = departments.First().DepartmentId;
-            return await DisplayDepartmentInfoByIdAsync(departmentId);
+            var topEmployees = await _employeeService.TopFiveEmployeesOfTheWeekAsync();
+            var mostTasks = topEmployees.First().Tasks.Count;
+            return topEmployees.Where(e => e.Tasks.Count == mostTasks).Select(e => e.DepartmentId).Distinct().ToList();         
         }
     }
 }

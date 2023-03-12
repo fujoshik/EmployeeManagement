@@ -27,6 +27,6 @@ namespace EmployeeManagement.Services.Services.Interfaces
 
         public Task<string> DisplayDepartmentInfoByIdAsync(int id);
 
-        public Task<string> TopDepartmentOfTheMonthInfoAsync();
+        public Task<List<int>> TopDepartmentOfTheMonthInfoAsync();
     }
 }

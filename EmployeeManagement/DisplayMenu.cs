@@ -47,7 +47,8 @@ namespace EmployeeManagement
             Console.WriteLine("1 - Create new department");
             Console.WriteLine("2 - Get department by id");
             Console.WriteLine("3 - Update department");
-            Console.WriteLine("4 - Delete department by id");
+            Console.WriteLine("4 - Get top department of the month");
+            Console.WriteLine("5 - Delete department by id");
             Console.WriteLine();
         }      
     }

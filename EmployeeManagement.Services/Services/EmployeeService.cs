@@ -85,12 +85,14 @@ namespace EmployeeManagement.Services.Services
                 throw new ArgumentNullException("No employees with tasks from the previous month");
             }
 
-            if (employeesWithTasksFromPreviousMonth.OrderBy(e => e.Tasks.Count).ToList().Count < 5)
+            var employeesDescending = employeesWithTasksFromPreviousMonth.OrderByDescending(e => e.Tasks.Count).ToList();
+
+            if (employeesDescending.Count < 5)
             {
-                return employeesWithTasksFromPreviousMonth.OrderBy(e => e.Tasks.Count).ToList();
+                return employeesDescending;
             }
 
-            return employeesWithTasksFromPreviousMonth.OrderBy(e => e.Tasks.Count).Take(5).ToList();
+            return employeesDescending.Take(5).ToList();
         }
 
         public async Task<string> DisplayEmployeeInfoByIdAsync(int id)

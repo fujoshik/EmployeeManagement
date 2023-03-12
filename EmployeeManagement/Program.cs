@@ -113,7 +113,7 @@ void TaskMenu()
     }
 }
 
-void DepartmentMenu()
+async void DepartmentMenu()
 {
     DisplayMenu.DisplayDepartmentMenu();
     string secondInput = Console.ReadLine();
@@ -133,6 +133,15 @@ void DepartmentMenu()
                 Console.WriteLine("Done");
                 break;
             case "4":
+                List<int> departmentIds = departmentService.TopDepartmentOfTheMonthInfoAsync().Result;
+                foreach (var id in departmentIds)
+                {
+                    Console.WriteLine(departmentService.DisplayDepartmentInfoByIdAsync(id).Result);
+                    Console.WriteLine();
+                }
+                Console.WriteLine("Done!");
+                break;
+            case "5":
                 departmentService.DeleteAsync(DepartmentCrud.GetDepartmentById());
                 Console.WriteLine("Done!");
                 break;
